@@ -9,12 +9,16 @@ app = Flask(__name__)
 # ------------------------------
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# ------------------------------
 # Model Paths
+# ------------------------------
 model_path = os.path.join(BASE_DIR, "models", "vehicle_prediction_model.pkl")
 crop_encoder_path = os.path.join(BASE_DIR, "models", "crop_encoder.pkl")
 vehicle_encoder_path = os.path.join(BASE_DIR, "models", "vehicle_encoder.pkl")
 
+# ------------------------------
 # Load Model & Encoders
+# ------------------------------
 model = joblib.load(model_path)
 crop_encoder = joblib.load(crop_encoder_path)
 vehicle_encoder = joblib.load(vehicle_encoder_path)
@@ -22,7 +26,21 @@ vehicle_encoder = joblib.load(vehicle_encoder_path)
 print("🚀 Server Ready...")
 
 # ------------------------------
-# Prediction Route
+# HOME ROUTE (IMPORTANT)
+# ------------------------------
+@app.route("/")
+def home():
+    return "API WORKING"
+
+# ------------------------------
+# TEST ROUTE (OPTIONAL DEBUG)
+# ------------------------------
+@app.route("/test")
+def test():
+    return "TEST OK"
+
+# ------------------------------
+# PREDICTION ROUTE
 # ------------------------------
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -38,11 +56,9 @@ def predict():
         crop = data["crop"].strip().title()
         weight = float(data["weight"])
 
-        # ✅ Prevent negative or zero weight
+        # Validate weight
         if weight <= 0:
-            return jsonify({
-                "error": "Weight must be greater than 0"
-            })
+            return jsonify({"error": "Weight must be greater than 0"})
 
         # Validate crop
         if crop not in crop_encoder.classes_:
@@ -53,21 +69,22 @@ def predict():
         # Encode crop
         crop_encoded = crop_encoder.transform([crop])[0]
 
-        # Predict vehicle
+        # Predict
         prediction = model.predict([[crop_encoded, weight]])
 
         # Decode vehicle
         vehicle = vehicle_encoder.inverse_transform(prediction)[0]
 
+        # FINAL RESPONSE (IMPORTANT KEY)
         return jsonify({
-            "recommended_vehicle": vehicle
+            "vehicle": vehicle
         })
 
     except Exception as e:
         return jsonify({"error": str(e)})
 
 # ------------------------------
-# Run App
+# RUN APP
 # ------------------------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

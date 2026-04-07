@@ -32,6 +32,7 @@ ML/
 │
 ├── api/
 │   └── app.py
+    ├── requirements.txt
 │
 ├── data/
 │   ├── raw/
@@ -49,7 +50,6 @@ ML/
 │   └── train_model.py
 │
 ├── venv/
-├── requirements.txt
 └── README.md
 ```
 
