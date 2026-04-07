@@ -5,49 +5,67 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 import joblib
 
-# Load dataset
-df = pd.read_csv("../data/raw/crop_transport_dataset.csv")
+# -----------------------------
+# Load Dataset (NO EXTRA SPACE!)
+# -----------------------------
+df = pd.read_csv("../data/raw/AgriGo_dataset.csv")
 
-# 🔥 Add SAME moderate noise
-df["Weight"] = df["Weight"] + np.random.uniform(-20, 20, size=len(df))
+# -----------------------------
+# Add Moderate Weight Noise
+# -----------------------------
+df["Weight"] = df["Weight"] + np.random.uniform(-30, 30, size=len(df))
 
-# Load encoders
+# -----------------------------
+# Load Encoders
+# -----------------------------
 crop_encoder = joblib.load("../models/crop_encoder.pkl")
 vehicle_encoder = joblib.load("../models/vehicle_encoder.pkl")
 
-# Encode again (for consistency)
-df["Crop"] = crop_encoder.transform(df["Crop"])
-df["Vehicle"] = vehicle_encoder.transform(df["Vehicle"])
+# -----------------------------
+# Encode Columns (Use Correct Names)
+# -----------------------------
+df["CropType"] = crop_encoder.transform(df["CropType"])
+df["VehicleType"] = vehicle_encoder.transform(df["VehicleType"])
 
-# Features & Target
-X = df[["Crop", "Weight"]]
-y = df["Vehicle"]
+# -----------------------------
+# Split Data
+# -----------------------------
+X = df[["CropType", "Weight"]]
+y = df["VehicleType"]
 
-# Split
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# 🔥 Balanced Tree Depth
+# -----------------------------
+# Controlled Decision Tree
+# -----------------------------
 model = DecisionTreeClassifier(
-    max_depth=5,
+    max_depth=4,
+    min_samples_split=30,
+    min_samples_leaf=15,
     random_state=42
 )
 
-# Train model
+# -----------------------------
+# Train Model
+# -----------------------------
 model.fit(X_train, y_train)
 
-# Predictions
-y_pred = model.predict(X_test)
-
-# Evaluation
+# -----------------------------
+# Evaluate
+# -----------------------------
 print("Training Accuracy:", model.score(X_train, y_train))
 print("Testing Accuracy:", model.score(X_test, y_test))
+
+y_pred = model.predict(X_test)
 
 print("\nClassification Report:\n")
 print(classification_report(y_test, y_pred))
 
-# Save model
+# -----------------------------
+# Save Model
+# -----------------------------
 joblib.dump(model, "../models/vehicle_prediction_model.pkl")
 
 print("\nModel saved successfully.")

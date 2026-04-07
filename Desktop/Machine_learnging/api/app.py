@@ -1,28 +1,26 @@
 from flask import Flask, request, jsonify
 import joblib
 import os
+
 app = Flask(__name__)
+
 # ------------------------------
-# Get Base Directory
+# Base Directory
 # ------------------------------
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# ------------------------------
+
 # Model Paths
-# ------------------------------
 model_path = os.path.join(BASE_DIR, "models", "vehicle_prediction_model.pkl")
 crop_encoder_path = os.path.join(BASE_DIR, "models", "crop_encoder.pkl")
 vehicle_encoder_path = os.path.join(BASE_DIR, "models", "vehicle_encoder.pkl")
-# ------------------------------
-# Load Model and Encoders
-# ------------------------------
+
+# Load Model & Encoders
 model = joblib.load(model_path)
 crop_encoder = joblib.load(crop_encoder_path)
 vehicle_encoder = joblib.load(vehicle_encoder_path)
-# PRINT AVAILABLE CROPS (DEBUGGING)
-print("\nAvailable crops in encoder:")
-for c in crop_encoder.classes_:
-    print(f"'{c}'")
-print("\nServer Ready...\n")
+
+print("🚀 Server Ready...")
+
 # ------------------------------
 # Prediction Route
 # ------------------------------
@@ -30,25 +28,46 @@ print("\nServer Ready...\n")
 def predict():
     try:
         data = request.get_json()
-        crop = data["crop"].strip()
+
+        if not data:
+            return jsonify({"error": "No JSON data received"})
+
+        if "crop" not in data or "weight" not in data:
+            return jsonify({"error": "Both 'crop' and 'weight' are required"})
+
+        crop = data["crop"].strip().title()
         weight = float(data["weight"])
-        # Check if crop exists       
+
+        # ✅ Prevent negative or zero weight
+        if weight <= 0:
+            return jsonify({
+                "error": "Weight must be greater than 0"
+            })
+
+        # Validate crop
         if crop not in crop_encoder.classes_:
             return jsonify({
                 "error": f"Invalid crop. Allowed crops: {list(crop_encoder.classes_)}"
             })
+
+        # Encode crop
         crop_encoded = crop_encoder.transform([crop])[0]
+
+        # Predict vehicle
         prediction = model.predict([[crop_encoded, weight]])
+
+        # Decode vehicle
         vehicle = vehicle_encoder.inverse_transform(prediction)[0]
+
         return jsonify({
             "recommended_vehicle": vehicle
         })
+
     except Exception as e:
-        return jsonify({
-            "error": str(e)
-        })
-#-------------------------------
-#Run App
-#-------------------------------
+        return jsonify({"error": str(e)})
+
+# ------------------------------
+# Run App
+# ------------------------------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)

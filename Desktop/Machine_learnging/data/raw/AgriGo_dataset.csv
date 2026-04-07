@@ -1,0 +1,256 @@
+CropType,Weight,VehicleType
+Rice,220,Auto
+Rice,780,Mini Truck
+Rice,1450,Pickup Truck
+Rice,3200,Large Truck
+
+Wheat,300,Auto
+Wheat,850,Pickup Truck
+Wheat,1600,Truck
+Wheat,4100,Large Truck
+
+Maize,250,Auto
+Maize,900,Pickup Truck
+Maize,1700,Truck
+Maize,3500,Large Truck
+
+Mosambi,50,Auto / Small Van
+Mosambi,200,Mini Truck
+Mosambi,500,Pickup Truck
+Mosambi,1100,Truck
+Mosambi,3250,Large Truck
+
+Barley,180,Auto
+Barley,620,Mini Truck
+Barley,1300,Pickup Truck
+Barley,2800,Truck
+
+Jowar,270,Auto
+Jowar,700,Mini Truck
+Jowar,1500,Truck
+Jowar,3000,Large Truck
+
+Bajra,200,Auto
+Bajra,750,Mini Truck
+Bajra,1200,Pickup Truck
+Bajra,2600,Truck
+
+Ragi,240,Auto
+Ragi,800,Mini Truck
+Ragi,1400,Pickup Truck
+Ragi,3100,Large Truck
+
+Foxtail Millet,260,Auto
+Foxtail Millet,720,Mini Truck
+Foxtail Millet,1350,Pickup Truck
+Foxtail Millet,2900,Truck
+
+Little Millet,210,Auto
+Little Millet,680,Mini Truck
+Little Millet,1250,Pickup Truck
+Little Millet,2700,Truck
+
+Kodo Millet,230,Auto
+Kodo Millet,790,Pickup Truck
+Kodo Millet,1550,Truck
+Kodo Millet,3300,Large Truck
+
+Chickpea,300,Auto
+Chickpea,880,Pickup Truck
+Chickpea,1600,Truck
+Chickpea,3400,Large Truck
+
+Pigeon Pea,320,Auto
+Pigeon Pea,760,Mini Truck
+Pigeon Pea,1450,Pickup Truck
+Pigeon Pea,3000,Large Truck
+
+Green Gram,190,Auto
+Green Gram,650,Mini Truck
+Green Gram,1200,Pickup Truck
+Green Gram,2500,Truck
+
+Black Gram,210,Auto
+Black Gram,700,Mini Truck
+Black Gram,1300,Pickup Truck
+Black Gram,2900,Truck
+
+Lentil,220,Auto
+Lentil,820,Pickup Truck
+Lentil,1500,Truck
+Lentil,3100,Large Truck
+
+Horse Gram,180,Auto
+Horse Gram,600,Mini Truck
+Horse Gram,1100,Pickup Truck
+Horse Gram,2400,Truck
+
+Cowpea,200,Auto
+Cowpea,750,Mini Truck
+Cowpea,1400,Pickup Truck
+Cowpea,2800,Truck
+
+Field Pea,240,Auto
+Field Pea,770,Mini Truck
+Field Pea,1350,Pickup Truck
+Field Pea,3000,Large Truck
+
+Groundnut,280,Auto
+Groundnut,850,Pickup Truck
+Groundnut,1700,Truck
+Groundnut,3600,Large Truck
+
+Mustard,260,Auto
+Mustard,700,Mini Truck
+Mustard,1500,Truck
+Mustard,3100,Large Truck
+
+Soybean,300,Auto
+Soybean,900,Pickup Truck
+Soybean,1800,Truck
+Soybean,4000,Large Truck
+
+Sunflower,250,Auto
+Sunflower,820,Pickup Truck
+Sunflower,1600,Truck
+Sunflower,3300,Large Truck
+
+Sesame,180,Auto
+Sesame,600,Mini Truck
+Sesame,1200,Pickup Truck
+Sesame,2500,Truck
+
+Castor,290,Auto
+Castor,880,Pickup Truck
+Castor,1700,Truck
+Castor,3500,Large Truck
+
+Linseed,210,Auto
+Linseed,740,Mini Truck
+Linseed,1400,Pickup Truck
+Linseed,2900,Truck
+
+Safflower,220,Auto
+Safflower,760,Mini Truck
+Safflower,1500,Truck
+Safflower,3100,Large Truck
+
+Cotton,350,Auto
+Cotton,950,Pickup Truck
+Cotton,2000,Truck
+Cotton,4200,Large Truck
+
+Sugarcane,400,Mini Truck
+Sugarcane,1200,Pickup Truck
+Sugarcane,2500,Truck
+Sugarcane,5000,Large Truck
+
+Jute,300,Auto
+Jute,880,Pickup Truck
+Jute,1600,Truck
+Jute,3400,Large Truck
+
+Tobacco,280,Auto
+Tobacco,820,Pickup Truck
+Tobacco,1700,Truck
+Tobacco,3600,Large Truck
+
+Tea,200,Auto
+Tea,750,Mini Truck
+Tea,1300,Pickup Truck
+Tea,2800,Truck
+
+Coffee,220,Auto
+Coffee,780,Mini Truck
+Coffee,1400,Pickup Truck
+Coffee,3000,Large Truck
+
+Rubber,300,Auto
+Rubber,900,Pickup Truck
+Rubber,1800,Truck
+Rubber,3700,Large Truck
+
+Mango,320,Auto
+Mango,880,Pickup Truck
+Mango,1600,Truck
+Mango,3500,Large Truck
+
+Banana,350,Auto
+Banana,950,Pickup Truck
+Banana,2100,Truck
+Banana,4800,Large Truck
+
+Apple,280,Auto
+Apple,820,Pickup Truck
+Apple,1700,Truck
+Apple,3600,Large Truck
+
+Grapes,250,Auto
+Grapes,780,Mini Truck
+Grapes,1400,Pickup Truck
+Grapes,3000,Large Truck
+
+Orange,260,Auto
+Orange,800,Pickup Truck
+Orange,1500,Truck
+Orange,3200,Large Truck
+
+Papaya,230,Auto
+Papaya,720,Mini Truck
+Papaya,1350,Pickup Truck
+Papaya,2800,Truck
+
+Guava,240,Auto
+Guava,760,Mini Truck
+Guava,1400,Pickup Truck
+Guava,3000,Large Truck
+
+Pomegranate,260,Auto
+Pomegranate,820,Pickup Truck
+Pomegranate,1700,Truck
+Pomegranate,3500,Large Truck
+
+Tomato,200,Auto
+Tomato,700,Mini Truck
+Tomato,1300,Pickup Truck
+Tomato,2700,Truck
+
+Potato,300,Auto
+Potato,900,Pickup Truck
+Potato,2000,Truck
+Potato,4200,Large Truck
+
+Onion,280,Auto
+Onion,850,Pickup Truck
+Onion,1700,Truck
+Onion,3500,Large Truck
+
+Brinjal,220,Auto
+Brinjal,750,Mini Truck
+Brinjal,1400,Pickup Truck
+Brinjal,2900,Truck
+
+Cabbage,240,Auto
+Cabbage,780,Mini Truck
+Cabbage,1500,Truck
+Cabbage,3100,Large Truck
+
+Cauliflower,260,Auto
+Cauliflower,820,Pickup Truck
+Cauliflower,1600,Truck
+Cauliflower,3300,Large Truck
+
+Carrot,200,Auto
+Carrot,720,Mini Truck
+Carrot,1300,Pickup Truck
+Carrot,2800,Truck
+
+Okra,210,Auto
+Okra,760,Mini Truck
+Okra,1450,Pickup Truck
+Okra,3000,Large Truck
+
+Chilli,230,Auto
+Chilli,800,Pickup Truck
+Chilli,1500,Truck
+Chilli,3200,Large Truck
